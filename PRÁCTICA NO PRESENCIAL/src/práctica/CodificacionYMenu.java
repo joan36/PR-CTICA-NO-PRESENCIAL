@@ -17,15 +17,21 @@ public class CodificacionYMenu {
         
         
         PracticaPresencial nombre = new PracticaPresencial();
+        TratamientoCaracteres caracter = new TratamientoCaracteres();
+        TratamientoPalabras palabra = new TratamientoPalabras();
+        TratamientoLinias linia= new TratamientoLinias();
         
         //Lectura nombreFichero texto
-        String fichero =nombre.nombreFichero();
-        
+        //String fichero =nombre.nombreFichero();
+        String fichero="cosa.txt";
+        char[] letras=nombre.recogidaDatos(fichero);
+       
         //Recogida datos fichero.
-        nombre.recogidaDatos(fichero);
+        //nombre.recogidaDatos(fichero);
         
-        System.out.println("Numero caracteres "+nombre.contadorCaracteres());
-        System.out.println("Numero palabras "+nombre.contadorPalabras());
+        System.out.println("Numero caracteres "+caracter.contadorCaracteres(letras));
+        System.out.println("Numero palabras "+palabra.contadorPalabras(letras));
+        System.out.println("Numero linias "+linia.numeroLinias(letras));
         
      
         boolean menu = false;
@@ -48,19 +54,21 @@ public class CodificacionYMenu {
                 case '1':
                     limpiar();
                     System.out.println("HAS ELEGIDO LA OPCIÓN 1. Muestra la letra más repetida y su número de apariciones");
-                    nombre.tratamientoletraMasRepetida();
-                    //nombre.letraMaxRepeticiones(option, abecedario, option);
+                    nombre.recogidaDatos(fichero);
+                    caracter.tratamientoletraMasRepetida(option, nombre.recogidaDatos(fichero));
+                   
                     break;
                 case '2':
                     limpiar();
                     System.out.println("HAS ELEGIDO LA OPCIÓN 2. Muestra el número de apariciones de cada carácter.");
-                    nombre.tratamientoletraMasRepetida();
-                    //nombre.listaLetraMasRepetida(abecedario, repeticiones);
+                    nombre.recogidaDatos(fichero);
+                    caracter.tratamientoletraMasRepetida(option, nombre.recogidaDatos(fichero));
+                   
                     break;
                 case '3':
                     limpiar();
                     System.out.println("HAS ELEGIDO LA OPCIÓN 3. Muestra la palabra más repetida y su número de apariciones.");
-                    nombre.palabraMasRepetida();
+                    palabra.palabraMasRepetida();
                     break;
                 case '4':
                     limpiar();

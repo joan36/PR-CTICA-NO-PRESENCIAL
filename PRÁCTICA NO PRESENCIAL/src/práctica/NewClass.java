@@ -17,6 +17,25 @@ public class NewClass {
 
     }
     
+    public void palabra2(){
+        
+        String[] palabras = {"Volvo", "BMW", "Ford", "Mazda", "Ford", "BMW", "Ford",};
+        
+        System.out.println("Introducir palabra");
+        String palabra=LT.readLine();
+        
+        for(int i=0;i<palabras.length;i++){
+            System.out.println(palabra+" = "+palabras[i]);
+            if(palabra==palabras[i]){
+                System.out.println(palabra+" = "+palabras[i]);
+            }
+        }
+        
+        
+    }
+    
+    
+    
     public void palabra(){
         
         
