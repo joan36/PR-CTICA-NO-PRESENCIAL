@@ -7,11 +7,13 @@ public class PracticaPresencial {
     //Variables globales
     char[] letras = new char[200];
     String[] palabras = new String[50];
+
     final int DESPLAZAMIENTO = 1;
     final int Final_Fitchero = -1;
     int CaracterASCII;
     final char espacio = ' ';
     final char punto = '.';
+    final char intro = '\n';
 
     public String nombreFichero() {
         System.out.println("Nombre del fitchero");
@@ -30,12 +32,14 @@ public class PracticaPresencial {
         while (CaracterASCII != Final_Fitchero) {
 
             letras[contador] = ((char) CaracterASCII);
+
             CaracterASCII = fitchero.read();
             contador++;
+
         }
 
         fitchero.close();
         return letras;
     }
-    
+
 }

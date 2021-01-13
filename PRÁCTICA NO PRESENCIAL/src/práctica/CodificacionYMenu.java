@@ -73,6 +73,7 @@ public class CodificacionYMenu {
                 case '4':
                     limpiar();
                     System.out.println("HAS ELEGIDO LA OPCIÓN 4. Busca una palabra.");
+                    palabra.buscarPalabra();
                     break;
                 case '5':
                     limpiar();

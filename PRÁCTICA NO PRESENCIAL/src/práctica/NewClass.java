@@ -1,44 +1,81 @@
 package práctica;
 
 public class NewClass {
-
+     
+    
     public static void main(String[] args) throws Exception {
+        final char espacio = ' ';
+        final char punto = '.';
+        final char intro = '\n';
+        int[] col = new int[200];
+        int[] lin = new int[200];        
+        String[] palabras=new String[200];
+        char[] letras={'h','o','l','a',' '};
+        
+
+        int i = 0, n = 0, contadorPalabras = 0, iterador = 1, iterador2 = 1;
+        String palabra = "";
+
+       /* while (letras[i] != punto) {
+
+            if (letras[i] != espacio) {
+
+                palabra = palabra + letras[i];
+                i++;
+
+            } else {
+
+                i++;
+                palabras[n] = palabra;
+
+                palabra = "";
+                n++;
+            }
+
+        }
+        palabras[n] = palabra;*/
+
+        
+        for (int x = 0; x < palabras.length; x++) {
+            System.out.print(letras[x]);
+        }
+
+    }
+
+    public void palabra3() {
+
         String[] palabras = {"Volvo", "BMW", "Ford", "Mazda", "Ford", "BMW", "Ford",};
-        
+
         System.out.println("Introducir palabra");
-        String palabra=LT.readLine();
-        
-        for(int i=0;i<palabras.length;i++){
-            System.out.println(palabra+" = "+palabras[i]);
-            if(palabra==palabras[i]){
-                System.out.println(palabra+" = "+palabras[i]);
+        String palabra = LT.readLine();
+
+        for (int i = 0; i < palabras.length; i++) {
+            System.out.println(palabra + " = " + palabras[i]);
+            if (palabra == palabras[i]) {
+                System.out.println(palabra + " = " + palabras[i]);
             }
         }
 
     }
-    
-    public void palabra2(){
-        
+
+    public void palabra2() {
+
         String[] palabras = {"Volvo", "BMW", "Ford", "Mazda", "Ford", "BMW", "Ford",};
-        
+
         System.out.println("Introducir palabra");
-        String palabra=LT.readLine();
-        
-        for(int i=0;i<palabras.length;i++){
-            System.out.println(palabra+" = "+palabras[i]);
-            if(palabra==palabras[i]){
-                System.out.println(palabra+" = "+palabras[i]);
+        String palabra = LT.readLine();
+
+        for (int i = 0; i < palabras.length; i++) {
+            System.out.println(palabra + " = " + palabras[i]);
+            if (palabra == palabras[i]) {
+                System.out.println(palabra + " = " + palabras[i]);
             }
         }
-        
-        
+
     }
-    
-    
-    
-    public void palabra(){
-        
-        
+
+    public void palabra() {
+
         String[] palabras = {"Volvo", "BMW", "Ford", "Mazda", "Ford", "BMW", "Ford",};
         String[] palabras2 = new String[50];
         int[] numeros = new int[50];
@@ -91,14 +128,8 @@ public class NewClass {
             }
 
         }
-        
-        
-        
-        
-        
+
     }
-    
-    
 
     public void letraMasRepetida() {
         char[] letras = {'a', 'a', 'e', ' ', 'u', 'v', 'a', 'e', ' ', 'e', 'e', ' ', 'u', ' ', 'v', 'a', 'e', 'u', 'v', 'a', 'a', 'e', 'u', 'v', 'a', 'e', 'e', 'e', 'u', 'v', 'a', 'e', 'u', 'v', 'a', 'a', 'e', 'u', 'v', 'a', 'e', 'e', 'e', 'u', 'v', 'a', 'e', 'u', 'v', 'a', 'a', 'e', 'u', 'v', 'a', 'e', 'e', 'e', 'u', 'v', 'a', 'e', 'u', 'v', 'a', 'a', 'e', 'u', 'v', 'a', 'e', 'e', 'e', 'u', 'v', 'a', 'e', 'u', 'v', '.'};

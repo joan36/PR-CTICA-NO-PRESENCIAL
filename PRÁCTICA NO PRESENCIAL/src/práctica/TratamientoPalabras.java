@@ -10,25 +10,45 @@ public class TratamientoPalabras {
     String[] palabras = new String[50];
     final char espacio = ' ';
     final char punto = '.';
+    final char intro = '\n';
+    int[] col = new int[200];
+    int[] lin = new int[200];
 
     public int contadorPalabras(char[] letras) throws Exception {
-        int i = 0, n = 0, contadorPalabras = 0;
+        int i = 0, n = 0, contadorPalabras = 0, iterador = 0, iterador2 = 1, linia = 1;
         String palabra = "";
 
         while (letras[i] != punto) {
-            if (letras[i] == espacio) {
-                i++;
+
+            //Contador linias fichero
+            lin[n] = linia;
+            iterador++;
+
+            if (letras[i] == intro) {
+                linia++;
+            }
+
+            if (letras[i] != espacio && letras[i] != intro) {
+
+                palabra = palabra + letras[i];
+
+            } else if (letras[i] == intro || letras[i] == espacio) {
+
                 palabras[n] = palabra;
+
                 palabra = "";
                 n++;
-            } else {
-                palabra = palabra + letras[i];
-                i++;
             }
+            i++;
 
         }
         palabras[n] = palabra;
 
+        while (letras[iterador] != punto) {
+
+        }
+
+        //Tratamiento linia
         for (int x = 0; x < palabras.length; x++) {
             if (palabras[x] != null) {
                 contadorPalabras++;
@@ -38,6 +58,7 @@ public class TratamientoPalabras {
         return contadorPalabras;
     }
 //Metodo que muestra las palabras mas repetidas del fichero.
+
     public void palabraMasRepetida() {
 
         String[] palabras2 = new String[50];
@@ -96,4 +117,29 @@ public class TratamientoPalabras {
         }
         System.out.println(palabras2[posicion] + " " + numeros[posicion]);
     }
+
+    public void pintarPalabras() {
+        for (int i = 0; i < palabras.length; i++) {
+            if (palabras[i] != null) {
+                System.out.println(palabras[i] + " " + lin[i]);
+            }
+        }
+    }
+
+    public void buscarPalabra() {
+        System.out.println("Que palabra quieres buscar??");
+        String n = LT.readLine();
+
+        for (int i = 0; i < palabras.length; i++) {
+
+            if (palabras[i] != null) {
+
+                if (n == palabras[i]) {
+                    System.out.println(" Ln " + lin[i] + " " + palabras[i]);
+
+                }
+            }
+        }
+    }
+
 }
