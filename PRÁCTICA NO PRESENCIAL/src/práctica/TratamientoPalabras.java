@@ -71,19 +71,29 @@ public class TratamientoPalabras {
 
             while (n != palabras.length || estaRepetida == false) {
 
-                if (palabras[i] == palabras2[n]) {
+                 if (palabras[i] != null && palabras2[n]!=null ) {
 
-                    estaRepetida = false;
-                    break;
+                    System.out.print(palabras[i]);
+                    System.out.print(palabras2[n]);
+                    System.out.println();
                 }
+                /*
+                if (palabras[i] == palabras2[n] && palabras[i] != null) {
+
+                    System.out.println(palabras[i] + "==" + palabras2[n]);
+                    //estaRepetida = false;
+                    //break;
+
+                }*/
                 n++;
             }
             //Resetear variable
             n = 0;
 
-            if (estaRepetida != false) {
+            if (estaRepetida) {
 
                 palabras2[z] = palabras[i];
+
                 z++;
             }
 
@@ -108,10 +118,12 @@ public class TratamientoPalabras {
         for (int i = 0; i < palabras.length; i++) {
 
             if (palabras2[i] != null) {
+
                 if (numeros[i] > maxApariciones) {
                     maxApariciones = numeros[i];
                     posicion = i;
                 }
+
             }
 
         }
