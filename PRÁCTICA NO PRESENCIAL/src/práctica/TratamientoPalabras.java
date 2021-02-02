@@ -7,21 +7,25 @@ package práctica;
 
 public class TratamientoPalabras {
 
-    String[] palabras = new String[50];
+ //   String[] palabras = new String[50];
     final char espacio = ' ';
     final char punto = '.';
     final char intro = '\n';
-    int[] col = new int[200];
-    int[] lin = new int[200];
+ //   int[] col = new int[200];
+ //   int[] lin = new int[200];
 
-    public int contadorPalabras(char[] letras) throws Exception {
+    public void contadorPalabras(char[] letras) throws Exception {
         int i = 0, n = 0, contadorPalabras = 0, iterador = 0, iterador2 = 1, linia = 1;
         String palabra = "";
+        
+        Palabra palabra1 = new Palabra();
+        
 
         while (letras[i] != punto) {
 
             //Contador linias fichero
-            lin[n] = linia;
+            //lin[n] = linia;
+            //palabra1.lin=linia;
             iterador++;
 
             if (letras[i] == intro) {
@@ -34,7 +38,8 @@ public class TratamientoPalabras {
 
             } else if (letras[i] == intro || letras[i] == espacio) {
 
-                palabras[n] = palabra;
+                //palabras[n] = palabra;
+                //palabra1.caracteres=palabra.charAt(0);
 
                 palabra = "";
                 n++;
@@ -42,12 +47,10 @@ public class TratamientoPalabras {
             i++;
 
         }
-        palabras[n] = palabra;
+        //palabras[n] = palabra;
 
-        while (letras[iterador] != punto) {
-
-        }
-
+        //System.out.println("Palabra1 "+ palabra1.caracteres);
+/*
         //Tratamiento linia
         for (int x = 0; x < palabras.length; x++) {
             if (palabras[x] != null) {
@@ -56,9 +59,11 @@ public class TratamientoPalabras {
         }
 
         return contadorPalabras;
+        
+        */
     }
 //Metodo que muestra las palabras mas repetidas del fichero.
-
+/*
     public void palabraMasRepetida() {
 
         String[] palabras2 = new String[50];
@@ -84,7 +89,7 @@ public class TratamientoPalabras {
                     //estaRepetida = false;
                     //break;
 
-                }*/
+                }
                 n++;
             }
             //Resetear variable
@@ -98,6 +103,8 @@ public class TratamientoPalabras {
             }
 
         }
+
+
         //Bucle para contar el número de repeticiones por palabra
         for (int i = 0; i < palabras.length; i++) {
 
@@ -152,6 +159,6 @@ public class TratamientoPalabras {
                 }
             }
         }
-    }
+    }*/
 
 }

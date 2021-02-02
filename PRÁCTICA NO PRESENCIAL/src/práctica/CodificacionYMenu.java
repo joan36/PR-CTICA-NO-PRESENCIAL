@@ -5,37 +5,39 @@
  */
 package práctica;
 
-public class CodificacionYMenu {
+import java.util.ArrayList;
 
+public class CodificacionYMenu {
+    
     public static void main(String args[]) throws Exception {
         new CodificacionYMenu().programaPrincipal();
         
     }
-
+    
     public void programaPrincipal() throws Exception {
-        
-        
         
         PracticaPresencial nombre = new PracticaPresencial();
         TratamientoCaracteres caracter = new TratamientoCaracteres();
-        TratamientoPalabras palabra = new TratamientoPalabras();
-        TratamientoLinias linia= new TratamientoLinias();
-        
-        //Lectura nombreFichero texto
-        //String fichero =nombre.nombreFichero();
-        String fichero="cosa.txt";
-        char[] letras=nombre.recogidaDatos(fichero);
-       
-        //Recogida datos fichero.
-        //nombre.recogidaDatos(fichero);
-        
-        System.out.println("Numero caracteres "+caracter.contadorCaracteres(letras));
-        System.out.println("Numero palabras "+palabra.contadorPalabras(letras));
-        System.out.println("Numero linias "+linia.numeroLinias(letras));
-        
-     
-        boolean menu = false;
+        Palabra palabras = new Palabra();
+        Letra letra =new Letra();
+        Linia lin=new Linia();
+        Codificacion cod=new Codificacion();
 
+
+        String fichero = "cosa.txt";
+        char[] letras = nombre.recogidaDatos(fichero);
+        ArrayList arrayObjetos=palabras.crearPalabra(letras);
+        Letra[] Objetoletras =letra.crearObjetosletra(letras);
+        ArrayList arrayLinia = lin.crearObjetoLinia(letras);
+        ArrayList<Palabra> arrayPalabras = palabras.crearPalabra(letras);;
+
+
+        System.out.println("Numero caracteres " + caracter.contadorCaracteres(letras));
+        System.out.println("Numero palabras " + arrayObjetos.size());
+        System.out.println("Numero linias " + arrayLinia.size());
+        
+        boolean menu = false;
+        
         while (!menu) {
             System.out.println("\n                     MENU ");
             System.out.println("OPCIÓN 1. Muestra la letra más repetida y su número de apariciones");
@@ -47,45 +49,51 @@ public class CodificacionYMenu {
             System.out.println("OPCIÓN 7. Codifica el fichero.");
             System.out.println("OPCIÓN 8. Establece la semilla de descodificaciónpara descodificar el fichero.");
             System.out.println("OPCIÓN 9. Salir.");
-
+            
             char option = LT.readChar();
-
+            
             switch (option) {
                 case '1':
                     limpiar();
                     System.out.println("HAS ELEGIDO LA OPCIÓN 1. Muestra la letra más repetida y su número de apariciones");
                     nombre.recogidaDatos(fichero);
-                    caracter.tratamientoletraMasRepetida(option, nombre.recogidaDatos(fichero));
-                   
+                    letra.letraMasRepetida(Objetoletras);
                     break;
                 case '2':
                     limpiar();
                     System.out.println("HAS ELEGIDO LA OPCIÓN 2. Muestra el número de apariciones de cada carácter.");
                     nombre.recogidaDatos(fichero);
-                    caracter.tratamientoletraMasRepetida(option, nombre.recogidaDatos(fichero));
-                   
+                    letra.repeticionesLetras(Objetoletras);
+                    
                     break;
                 case '3':
                     limpiar();
                     System.out.println("HAS ELEGIDO LA OPCIÓN 3. Muestra la palabra más repetida y su número de apariciones.");
-                    palabra.palabraMasRepetida();
+                    palabras.crearPalabra(letras);
+                    palabras.palabraMasRepetida(arrayObjetos);
+                    
                     break;
                 case '4':
                     limpiar();
                     System.out.println("HAS ELEGIDO LA OPCIÓN 4. Busca una palabra.");
-                    palabra.buscarPalabra();
+                    palabras.crearPalabra(letras);
+                    palabras.buscarPalabra(arrayPalabras);
                     break;
                 case '5':
                     limpiar();
                     System.out.println("HAS ELEGIDO LA OPCIÓN 5. Busca un texto.");
+                    lin.crearObjetoLinia(letras);
+                    lin.buscarLinia(arrayLinia);
                     break;
                 case '6':
                     limpiar();
                     System.out.println("HAS ELEGIDO LA OPCIÓN 6. Busca las palabras repetidas.");
+                    palabras.palabrasRepetidas(arrayObjetos);
                     break;
                 case '7':
                     limpiar();
                     System.out.println("HAS ELEGIDO LA OPCIÓN 7. Codifica el fichero.");
+                    cod.codificarfitchero(letras);
                     break;
                 case '8':
                     limpiar();
@@ -99,13 +107,13 @@ public class CodificacionYMenu {
                 default:
                     menu = true;
             }
-
+            
         }
     }
-
+    
     public void limpiar() {
         System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
                 + "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
-
+    
 }

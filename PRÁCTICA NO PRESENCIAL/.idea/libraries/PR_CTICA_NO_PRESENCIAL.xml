@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="PR_CTICA_NO_PRESENCIAL">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/PR_CTICA_NO_PRESENCIAL.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
