@@ -7,32 +7,31 @@ package práctica;
 
 import java.util.ArrayList;
 
-public class CodificacionYMenu {
+public class Menu {
     
     public static void main(String args[]) throws Exception {
-        new CodificacionYMenu().programaPrincipal();
+        new Menu().programaPrincipal();
         
     }
     
     public void programaPrincipal() throws Exception {
         
-        PracticaPresencial nombre = new PracticaPresencial();
-        TratamientoCaracteres caracter = new TratamientoCaracteres();
+        Datos datos = new Datos();
         Palabra palabras = new Palabra();
         Letra letra =new Letra();
         Linia lin=new Linia();
         Codificacion cod=new Codificacion();
 
 
-        String fichero = "cosa.txt";
-        char[] letras = nombre.recogidaDatos(fichero);
+        String fichero = datos.nombreFichero();
+        char[] letras = datos.recogidaDatos(fichero);
         ArrayList arrayObjetos=palabras.crearPalabra(letras);
         Letra[] Objetoletras =letra.crearObjetosletra(letras);
         ArrayList arrayLinia = lin.crearObjetoLinia(letras);
-        ArrayList<Palabra> arrayPalabras = palabras.crearPalabra(letras);;
+        ArrayList<Palabra> arrayPalabras = palabras.crearPalabra(letras);
 
 
-        System.out.println("Numero caracteres " + caracter.contadorCaracteres(letras));
+        System.out.println("Numero caracteres " + datos.contadorCaracteres(letras));
         System.out.println("Numero palabras " + arrayObjetos.size());
         System.out.println("Numero linias " + arrayLinia.size());
         
@@ -56,13 +55,13 @@ public class CodificacionYMenu {
                 case '1':
                     limpiar();
                     System.out.println("HAS ELEGIDO LA OPCIÓN 1. Muestra la letra más repetida y su número de apariciones");
-                    nombre.recogidaDatos(fichero);
+                    datos.recogidaDatos(fichero);
                     letra.letraMasRepetida(Objetoletras);
                     break;
                 case '2':
                     limpiar();
                     System.out.println("HAS ELEGIDO LA OPCIÓN 2. Muestra el número de apariciones de cada carácter.");
-                    nombre.recogidaDatos(fichero);
+                    datos.recogidaDatos(fichero);
                     letra.repeticionesLetras(Objetoletras);
                     
                     break;

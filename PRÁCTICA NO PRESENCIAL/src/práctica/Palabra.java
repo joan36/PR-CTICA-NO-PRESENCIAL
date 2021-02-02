@@ -21,32 +21,8 @@ public class Palabra {
         return caracteres;
     }
 
-    public void setCaracteres(char[] caracteres) {
-        this.caracteres = caracteres;
-    }
-
-    public int getNumCaracteres() {
-        return numCaracteres;
-    }
-
-    public void setNumCaracteres(int numCaracteres) {
-        this.numCaracteres = numCaracteres;
-    }
-
     public int getLin() {
         return lin;
-    }
-
-    public void setLin(int lin) {
-        this.lin = lin;
-    }
-
-    public int getCol() {
-        return col;
-    }
-
-    public void setCol(int col) {
-        this.col = col;
     }
 
     public int getNumApariciones() {
@@ -74,7 +50,7 @@ public class Palabra {
     }
 
     //Metodo crear objeto Palabra.
-    public ArrayList<Palabra> crearPalabra(char[] letras) throws Exception {
+    public ArrayList<Palabra> crearPalabra(char[] letras) {
         ArrayList<Palabra> arrayObjetos = new ArrayList<>();
         int linia = 1, contador = 0, col = 1;
         char[] arrayTemporla = new char[20];
@@ -108,7 +84,7 @@ public class Palabra {
 
     public void palabraMasRepetida(ArrayList<Palabra> arrayObjetos) {
         ArrayList<Palabra> arrayPalabras = new ArrayList<>();
-        int cont = 0, y = 0, z = 1, w = 0, q = 0, repes = 0, apariciones = 0;
+        int repes = 0, apariciones = 0;
         boolean match = false;
         //for para crear ArrayList arrayPalabras sin palabras repetidas.
         for (int a = 0; a < arrayObjetos.size(); a++) {
@@ -142,14 +118,12 @@ public class Palabra {
 
         System.out.println(arrayPalabras.get(apariciones).caracteres);
         System.out.println("Palabra " + arrayPalabras.get(apariciones).getNumApariciones());
-
-
     }
 
     public void buscarPalabra(ArrayList<Palabra> arrayObjetos) {
         System.out.println("Palabra a buscar?");
         String palabraBuscar = LT.readLine();
-        int posicion = 0, y = 0, match = 0;
+        int match = 0;
 
         for (int a = 0; a < arrayObjetos.size(); a++) {
 
@@ -167,9 +141,7 @@ public class Palabra {
 
     public void palabrasRepetidas(ArrayList<Palabra> arrayObjetos) {
         for (int i = 1; i < arrayObjetos.size(); i++) {
-            /*System.out.print(arrayObjetos.get(i - 1).caracteres);
-            System.out.print((arrayObjetos.get(i).caracteres));
-            System.out.println();*/
+
             if (Arrays.equals(arrayObjetos.get(i - 1).caracteres, arrayObjetos.get(i).caracteres)) {
                 System.out.print("PALABRA ");
                 System.out.println(arrayObjetos.get(i).caracteres);

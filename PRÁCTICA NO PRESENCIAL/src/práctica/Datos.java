@@ -3,23 +3,17 @@ package práctica;
 
 import java.io.FileReader;
 
-public class PracticaPresencial {
+public class Datos {
 
     //Variables globales
     char[] letras = new char[200];
-    String[] palabras = new String[50];
-
-    final int DESPLAZAMIENTO = 1;
     final int Final_Fitchero = -1;
     int CaracterASCII;
-    final char espacio = ' ';
-    final char punto = '.';
-    final char intro = '\n';
+
 
     public String nombreFichero() {
         System.out.println("Nombre del fitchero");
-        String nombre = LT.readLine();
-        return nombre;
+        return LT.readLine();
     }
 
     public char[] recogidaDatos(String nombre) throws Exception {
@@ -41,6 +35,18 @@ public class PracticaPresencial {
 
         fitchero.close();
         return letras;
+    }
+
+    public int contadorCaracteres(char[] letras) {
+        int caracteres = 0, i = 0;
+
+        while (letras[i] != '.') {
+            if (letras[i] != ' ') {
+                caracteres++;
+            }
+            i++;
+        }
+        return caracteres;
     }
 
 

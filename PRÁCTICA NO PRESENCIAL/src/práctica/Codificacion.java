@@ -4,20 +4,18 @@ import java.io.FileWriter;
 import java.util.Random;
 
 public class Codificacion {
-    private int numeroCaracteres = 27, enter = 13, espacio = 32;
-    private char punto = '.';
+    private final int numeroCaracteres = 27;
+    private final char punto = '.';
     private static final char[] ALFABETO = "abcdefghijklmnñopqrstuvwxyz".toCharArray();
-    private int desplazamiento;
     private String ficheroOrigen = "cosa.txt";
 
-    public void codificacion(int semilla) {
-        Random generador = new Random(semilla);
-
-        int desplazamiento = ((int) generador.nextDouble() * numeroCaracteres);
+    public int codificacion() {
+        Random generador = new Random(semilla());
+        return ((int) generador.nextDouble() * numeroCaracteres);
     }
 
-    public char codificar(char letra, int desplazamiento) {
-        return ALFABETO[(posicion(letra) + desplazamiento) % numeroCaracteres];
+    public char codificar(char letra) {
+        return ALFABETO[(posicion(letra) + codificacion()) % numeroCaracteres];
     }
 
     public char decodificar(char letra, int desplazamiento) {
@@ -41,8 +39,8 @@ public class Codificacion {
 
         while (letras[i] != punto) {
             if (letras[i] >= 97 && letras[i] <= 122) {
-                System.out.print(codificar(letras[i], i));
-                temporal = (codificar(letras[i], i));
+                System.out.print(codificar(letras[i]));
+                temporal = (codificar(letras[i]));
                 ficheroCodificado.write(temporal);
 
             } else {
@@ -56,7 +54,13 @@ public class Codificacion {
     }
 
     public void decodificarfitchero(char[] letras){
-        
+
+    }
+
+    public int semilla(){
+        System.out.println("Semilla?");
+        int semilla=LT.readInt();
+        return semilla;
     }
 
 
